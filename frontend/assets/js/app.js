@@ -62,7 +62,30 @@ function setUpLayers() {
     .addTo(map);
 }
 
+function setUpEvents() {
+
+  let infoPopup = L.popup();
+
+  map.on('click', async (e) => {
+    if (map.getZoom() > 16) {
+      let info = await getInfoFromCoord(e.latlng.lat, e.latlng.lng)
+
+      if(info)
+        infoPopup
+          .setLatLng(e.latlng)
+          .setContent(`
+            Comune: ${info.DENOM} (COD: ${info.COD_COMUNE})<br>
+            Provincia: ${info.SIGLA_PROV}<br>
+            Particella: ${info.NUM_PART}<br>
+            Foglio: ${info.FOGLIO}
+          `)
+          .openOn(mymap);
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   setUpProj4();
   setUpLayers();
+  setUpEvents();
 });

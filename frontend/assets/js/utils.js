@@ -16,3 +16,12 @@ function tile2lat(y, z) {
   let n = Math.PI - (2 * Math.PI * y) / Math.pow(2, z);
   return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
 }
+
+
+async function getInfoFromCoord(lat, lon) {
+  const response = await fetch(
+    `https://wms.cartografia.agenziaentrate.gov.it/inspire/ajax/ajax.php?op=getDatiOggetto&lon=${lon}&lat=${lat}`
+  );
+
+  return response.json()
+}
