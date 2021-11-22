@@ -46,7 +46,8 @@ function setUpLayers() {
     return new L.TileLayer.Catasto();
   };
 
-  L.tileLayer.catasto().addTo(map).setOpacity(0.5);
+  let catasto = L.tileLayer.catasto()
+  catasto.addTo(map).setOpacity(0.5);
 
   L.control
     .layers(
@@ -55,7 +56,7 @@ function setUpLayers() {
         Satellite: mapbox,
       },
       {
-        Catasto: L.tileLayer.catasto,
+        Catasto: catasto,
       }
     )
     .addTo(map);
