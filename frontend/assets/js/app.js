@@ -79,7 +79,7 @@ function setUpEvents() {
             Particella: ${info.NUM_PART}<br>
             Foglio: ${info.FOGLIO}
           `)
-          .openOn(mymap);
+          .openOn(map);
     }
   });
 }
