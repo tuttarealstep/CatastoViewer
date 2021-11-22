@@ -67,7 +67,7 @@ function setUpEvents() {
   let infoPopup = L.popup();
 
   map.on('click', async (e) => {
-    if (map.getZoom() > 16) {
+    if (map.getZoom() > 10) {
       let info = await getInfoFromCoord(e.latlng.lat, e.latlng.lng)
 
       if(info)
