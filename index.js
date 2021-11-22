@@ -15,3 +15,6 @@ let lon = "8.292854";
 let lat = "44.926799";
 
 getInfoFromCoord(lat, lon);
+
+//https://github.com/ilmistra/catasto_web/blob/master/catasto.html
+//https://medium.com/@p.mistrangelo/visualizzare-le-mappe-del-catasto-terreni-con-google-maps-473a44872962
